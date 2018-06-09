@@ -1,25 +1,27 @@
 import React from 'react';
+import moment from 'moment';
 
 const dateOptions = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
 
-function addDays(date, days) {
-    const answer = new Date(date);
-    answer.setDate(answer.getDate() + days);
-    return answer;
-}
 
-const formatDate = date => date.toLocaleDateString('en-UK', dateOptions);
+const formatString = 'dddd, MMMM Do YYYY';
 
-function Information ({date, perWeek}) {
+function Information ({inputDate, perWeek}) {
+    const date = moment(inputDate);
+
 
     return (
         <div>
             <h2>Results</h2>
             <p>
-                You went off sick on {formatDate(date)}.
+                You went off sick on {date.format(formatString)}.
             </p>
             <p>
-                You will receive SSP from {formatDate(addDays(date, 4))}.
+                You will receive SSP from {
+                    date
+                    .clone()
+                    .add(4, 'days')
+                    .format(formatString)}.
             </p>
 
             <p>
