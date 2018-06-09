@@ -12,6 +12,10 @@ class App extends Component {
     wentOffSick: new Date()
   };
 
+  changeDate = (event) => {
+    this.setState({wentOffSick: event.target.value});
+  }
+
   render() {
     return (
       <div>
@@ -19,8 +23,8 @@ class App extends Component {
           <h1>Statutory Sick Pay Calculator</h1>
         </header>
 
-        <Picker label="First day of your sickness absence: "/>
-        <Information date={this.state.wentOffSick} perWeek={perWeek} />
+        <Picker label="First day of your sickness absence: " handler={this.changeDate}/>
+        <Information inputDate={this.state.wentOffSick} perWeek={perWeek}/>
 
         <footer>
           <h2>Disclaimer</h2>

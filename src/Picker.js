@@ -1,10 +1,10 @@
 import React from 'react';
 
-function Picker ({label}) {
+function Picker ({label, handler}) {
     return (
         <form>
             <label htmlFor="date">{label}</label>
-            <input id="date" type="date"/>
+            <input id="date" type="date" onChange={handler}/>
         </form>
     );
 }
