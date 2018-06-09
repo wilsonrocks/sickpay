@@ -49,8 +49,8 @@ function Information ({inputDate, perWeek}) {
             {weeksInfo(weeksLeft, sickPayEnds)}
 
             <p>
-                At <span className="info">£{perWeek.toFixed(2)}</span> a week, this means you are entitled to a further <span className="info">
-                £{(perWeek * Math.max(0, weeksLeft)).toFixed(2)}</span>.
+                At <span className="info">£{perWeek.toFixed(2)}</span> a week, for a maximum of <span className="info">28</span> weeks, this means you are entitled to a further <span className="info">
+                £{(perWeek * Math.max(0, Math.min(28,weeksLeft))).toFixed(2)}</span>.
             </p>
         </div>
     );

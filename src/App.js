@@ -23,7 +23,7 @@ class App extends Component {
           <h1>Statutory Sick Pay Calculator</h1>
         </header>
 
-        <Picker label="First day of your sickness absence: " handler={this.changeDate}/>
+        <Picker label="First day of your sickness absence: " handler={this.changeDate} date={this.state.wentOffSick}/>
         <Information inputDate={this.state.wentOffSick} perWeek={perWeek}/>
 
         <footer>
