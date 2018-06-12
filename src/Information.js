@@ -1,24 +1,27 @@
 import React from 'react';
 import moment from 'moment';
 
-const formatString = 'dddd, MMMM Do YYYY';
+import{DATE_FORMAT} from './constants';
 
 function weeksInfo (weeks, sickPayEnds) {
     if (weeks > 0) return (
     <p>
         It will run out in <span className="info">
-            {Math.trunc(weeks)} weeks
+            {Math.trunc(weeks)} weeks.
         </span> on <span className="info">
-            {sickPayEnds.format(formatString)}
+            {sickPayEnds.format(DATE_FORMAT)}
         </span>
     </p>);
 
-        else {
-            return (
+    else {
+        return (
             <p>
-                It ran out on <span className="info">{sickPayEnds.format(formatString)}</span>
+                It ran out on <span className="info">.
+                    {sickPayEnds.format(DATE_FORMAT)}
+                </span>
             </p>
-        );}
+        );
+    }
 
 
 }
@@ -39,11 +42,11 @@ function Information ({inputDate, perWeek}) {
             <h2>Results</h2>
             <p>
                 You went off sick on <span className="info">
-                    {date.format(formatString)}
+                    {date.format(DATE_FORMAT)}
                 </span>.
             </p>
             <p>
-                You will receive Statutory Sick Pay from <span className="info">{sickPayCommences.format(formatString)}</span>.
+                You will receive Statutory Sick Pay from <span className="info">{sickPayCommences.format(DATE_FORMAT)}</span>.
             </p>
 
             {weeksInfo(weeksLeft, sickPayEnds)}
